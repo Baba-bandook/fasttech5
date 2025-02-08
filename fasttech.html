@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASTECH - Secure Login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(transparent 95%, rgba(0, 255, 0, 0.1) 95%),
+                linear-gradient(90deg, transparent 95%, rgba(0, 255, 0, 0.1) 95%);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .login-container {
+            position: relative;
+            width: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 0, 0.1);
+        }
+
+        .login-container h1 {
+            color: #00ff00;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #00ff00;
+            font-size: 1em;
+            padding-left: 45px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff00;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #00ff00, #009900);
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #009900, #00ff00);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+        }
+
+        .security-text {
+            color: #00ff00;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .binary-fall {
+            position: absolute;
+            color: rgba(0, 255, 0, 0.1);
+            font-size: 12px;
+            user-select: none;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .telegram-redirect {
+            color: #00ff00;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .telegram-redirect a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    
+    <!-- Animated binary code background -->
+    <div class="binary-fall" style="left: 10%">010101010101</div>
+    <div class="binary-fall" style="left: 20%">110010101010</div>
+    <div class="binary-fall" style="left: 75%">001010101011</div>
+    <div class="binary-fall" style="left: 90%">111000101010</div>
+
+    <div class="login-container">
+        <h1>FASTECH LOGIN</h1>
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <div class="input-group">
+                <i class="material-icons"></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="material-icons"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit">ACCESS PORTAL</button>
+        </form>
+        <p class="security-text">Secure Connection | 256-bit Encryption</p>
+        <p class="telegram-redirect">Contact-Team <a href="https://t.me/fastech" target="_blank">FASTECH Team</a></p>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            // Add your login validation logic here
+            window.location.href = 'https://t.me/fasttech5';
+            return false;
+        }
+
+        // Create more binary falling elements
+        function createBinary() {
+            const container = document.body;
+            for (let i = 0; i < 20; i++) {
+                const binary = document.createElement('div');
+                binary.className = 'binary-fall';
+                binary.style.left = Math.random() * 100 + '%';
+                binary.style.animationDelay = Math.random() * 10 + 's';
+                binary.textContent = Math.random().toString(2).substr(2, 10);
+                container.appendChild(binary);
+            }
+        }
+        createBinary();
+    </script>
+</body>
+</html>
